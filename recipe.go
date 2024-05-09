@@ -5,21 +5,19 @@ import (
 	"slices"
 )
 
-type Empty struct{}
-
 type Recipe struct {
 	Title       string           `json:"title"`
 	Author      string           `json:"author"`
 	Ingredients []Ingredient     `json:"ingredients"`
 	Directions  []string         `json:"directions"`
-	Tags        map[string]Empty `json:"tags"`
+	Tags        map[string]struct{} `json:"tags"`
 }
 
 func NewRecipe(title string, author string) Recipe {
-	return Recipe{Title: title, Author: author, Ingredients: []Ingredient{}, Directions: []string{}, Tags: make(map[string]Empty)}
+	return Recipe{Title: title, Author: author, Ingredients: []Ingredient{}, Directions: []string{}, Tags: make(map[string]struct{})}
 }
 
-func MakeRecipe(title string, author string, Ingredients []Ingredient, Directions []string, tags map[string]Empty) Recipe {
+func MakeRecipe(title string, author string, Ingredients []Ingredient, Directions []string, tags map[string]struct{}) Recipe {
 	return Recipe{
 		Title:       title,
 		Author:      author,
@@ -103,7 +101,7 @@ func (this *Recipe) SwapDirections(indexArray []int) error {
 }
 
 func (this *Recipe) AddTag(tag string) {
-	this.Tags[tag] = Empty{}
+	this.Tags[tag] = struct{}{}
 }
 
 func (this *Recipe) RemoveTag(tag string) {
