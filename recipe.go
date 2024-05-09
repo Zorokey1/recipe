@@ -8,11 +8,11 @@ import (
 type empty struct{}
 
 type Recipe struct {
-	Title       string
-	Author      string
-	Ingredients []Ingredient
-	Directions  []string
-	Tags        map[string]empty
+	Title       string           `json:"title"`
+	Author      string           `json:"author"`
+	Ingredients []Ingredient     `json:"ingredients"`
+	Directions  []string         `json:"directions"`
+	Tags        map[string]empty `json:"tags"`
 }
 
 func NewRecipe(title string, author string) Recipe {
@@ -60,10 +60,10 @@ func (this *Recipe) SwapIngredients(indexArray []int) error {
 		}
 	}
 
-    temp := slices.Clone(this.Ingredients)
+	temp := slices.Clone(this.Ingredients)
 
 	for i := 0; i < len(indexArray); i++ {
-        this.Ingredients[i] = temp[indexArray[i]]
+		this.Ingredients[i] = temp[indexArray[i]]
 	}
 
 	return nil
@@ -93,17 +93,17 @@ func (this *Recipe) SwapDirections(indexArray []int) error {
 		}
 	}
 
-    temp := slices.Clone(this.Directions)
+	temp := slices.Clone(this.Directions)
 
 	for i := 0; i < len(indexArray); i++ {
-        this.Directions[i] = temp[indexArray[i]]
+		this.Directions[i] = temp[indexArray[i]]
 	}
 
 	return nil
 }
 
 func (this *Recipe) AddTag(tag string) {
-    this.Tags[tag] = empty{}
+	this.Tags[tag] = empty{}
 }
 
 func (this *Recipe) RemoveTag(tag string) {

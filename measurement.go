@@ -5,8 +5,8 @@ import (
 )
 
 type Measurement struct {
-	Fraction
-	Unit string
+	Fraction `json:"fraction"`
+	Unit     string `json:"unit"`
 }
 
 func (this Measurement) String() string {

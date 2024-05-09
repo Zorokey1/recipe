@@ -5,8 +5,8 @@ import (
 )
 
 type Ingredient struct {
-	Measurement
-	Name string
+	Measurement `json:"measurement"`
+	Name        string `json:"name"`
 }
 
 func (this Ingredient) String() string {

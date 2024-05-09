@@ -5,8 +5,8 @@ import (
 )
 
 type Fraction struct {
-	Numerator   int
-	Denominator int
+	Numerator   int `json:"numerator"`
+	Denominator int `json:"denominator"`
 }
 
 var ErrDivideByZero error = fmt.Errorf("fraction: can't divide by 0")
