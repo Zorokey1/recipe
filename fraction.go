@@ -11,6 +11,7 @@ type Fraction struct {
 
 var ErrDivideByZero error = fmt.Errorf("fraction: can't divide by 0")
 
+
 func MakeFraction(numerator int, denominator int) (Fraction, error) {
 	if denominator == 0 {
 		return Fraction{}, ErrDivideByZero
