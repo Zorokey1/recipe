@@ -5,14 +5,13 @@ import (
 	"slices"
 )
 
-
-
 type Recipe struct {
-	Title       string           `json:"title"`
-	Author      string           `json:"author"`
-	Ingredients []Ingredient     `json:"ingredients"`
-	Directions  []string         `json:"directions"`
+	Title       string          `json:"title"`
+	Author      string          `json:"author"`
+	Ingredients []Ingredient    `json:"ingredients"`
+	Directions  []string        `json:"directions"`
 	Tags        map[string]bool `json:"tags"`
+	ID          int             `json:"id"`
 }
 
 func NewRecipe(title string, author string) Recipe {
